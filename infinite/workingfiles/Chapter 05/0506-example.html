@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Manipulation</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery DOM Methods</h1>
+		<p>Manipulatating the Document Object Model</p>
+	</header>
+	
+	<article>
+	
+		<div
+			id="element" 
+			data-name="myelement" 
+			data-type="standard" 
+			data-counter="0"
+		>Element used for data storage.</div>
+	
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+var e = $("#element");
+
+// display initial values
+console.log( e.data("name") );
+console.log( e.data("type") );
+console.log( e.data("counter") );
+console.log( e.data("test") ); // undefined
+
+// update a value
+e.data("counter", 1);
+console.log( e.data("counter") ); // 1
+
+// set a new value
+e.data("test", 2);
+console.log( e.data("test") ); // 2
+
+// reset values to original
+e.removeData("counter");
+e.removeData("test");
+console.log( e.data("counter") ); // 0
+console.log( e.data("test") ); // undefined
+
+
+</script>
+</body>
+</html>

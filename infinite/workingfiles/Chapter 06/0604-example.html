@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>jQuery events</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery Events</h1>
+	</header>
+	
+	<article>
+	
+		<div id="e1">#e1
+			<div id="e2">#e2</div>
+		</div>
+		
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// run when DOM is ready
+$(function() {
+
+	// show event information
+	$("#e1").bind("mouseover", function(e) {
+		console.clear();
+		console.log("event type: ", e.type);
+		console.log("target: ", e.target);
+		console.log("currentTarget: ", e.currentTarget);
+		console.log("mouse at: ", e.pageX, e.pageY);
+	});
+
+});
+
+</script>
+</body>
+</html>

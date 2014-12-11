@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Manipulation</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery DOM Methods</h1>
+		<p>Manipulatating the Document Object Model</p>
+	</header>
+	
+	<article>
+	
+		<img src="../resources/images/dom-tree.png" width="330" height="319" alt="DOM tree" />
+	
+		<p>In this chapter we will discover how to get and set:</p>
+		<ul>
+			<li>attributes</li>
+			<li>CSS properties</li>
+			<li>form values</li>
+			<li>element text</li>
+			<li>HTML5 element data</li>
+			<li>element positions</li>
+		</ul>
+		
+		<p>as well as:</p>
+		<ul>
+			<li>wrapping HTML elements</li>
+			<li>copying HTML elements</li>
+			<li>deleting HTML elements</li>
+		</ul>
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// display image width in console
+console.log( "image width: ", $("img").attr("width") );
+
+// change image width
+$("img").attr("width", "150");
+
+// change links
+$("a").attr(
+{
+	"href": "http://www.google.com",
+	"style": "color:red;"
+});
+
+// remove link style
+$("a").removeAttr("style");
+
+</script>
+</body>
+</html>

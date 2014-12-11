@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Manipulation</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery DOM Methods</h1>
+		<p>Manipulatating the Document Object Model</p>
+	</header>
+	
+	<article>
+	
+		<form id="myform" action="#" method="get">
+			<fieldset>
+				<legend>My Form</legend>
+			
+				<label for="name">Name</label>
+				<input type="text" id="name" name="name" value="Craig Buckler" />
+
+				<label for="comments">Comments</label>
+				<textarea id="comments" name="comments" rows="2" cols="18">Are you enjoying this video course?</textarea>
+
+				<label for="skills">Primary skills</label>
+				<select id="skills" name="skills">
+					<option value="none">please select&hellip;</option>
+					<option value="html">HTML</option>
+					<option value="css">CSS</option>
+					<option value="js">JavaScript</option>
+				</select>
+				
+				<label><input type="checkbox" id="like" name="like" checked="checked" /> I like jQuery</label>
+				
+				<p>Age group:</p>
+				<label><input type="radio" id="age0" name="age" value="-30" /> under 30</label>
+				<label><input type="radio" id="age1" name="age" value="30-50" checked="checked" /> 30 to 50</label>
+				<label><input type="radio" id="age2" name="age" value="50-" /> over 50</label>
+			
+			</fieldset>
+		</form>
+		
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// inspect name input
+console.log( $("#name").val() );
+
+// change name input
+$("#name").val("New Name");
+
+// inspect skills select box
+console.log( $("#skills").val() );
+
+// inspect individual select box options
+console.log( $("#skills option[value=js]").prop("selected") );
+console.log( $("#skills option").eq(3).prop("selected") );
+
+// change skills select box
+$("#skills").val("js");
+
+// change individual select box options
+$("#skills option[value=js]").prop("selected", true);
+$("#skills option").eq(3).prop("selected", true);
+
+// is checkbox checked
+console.log( $("#like").prop("checked") );
+
+// uncheck checkbox
+$("#like").prop("checked", false)
+
+// inspect individual radio buttons
+console.log( $("#age0").prop("checked") );
+console.log( $("#age1").prop("checked") );
+console.log( $("#age2").prop("checked") );
+
+// find value for checked radio button
+console.log( $("input[name=age]:checked").val() );
+
+// check a radio button
+$("#age0").prop("checked", true);
+
+</script>
+</body>
+</html>

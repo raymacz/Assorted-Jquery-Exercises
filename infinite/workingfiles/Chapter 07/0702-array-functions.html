@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+		<h1>jQuery utility functions</h1>
+		<p>Array methods</p>
+		</article>
+		
+		<article>
+		<h1>isArray</h1>
+		<p>Is an item an array?</p>
+		
+		<pre>var a = [1,2,3];
+console.log( $.isArray(a) ); // true</pre>
+		</article>
+		
+		<article>
+		<h1>inArray</h1>
+		<p>Is an item in an array?</p>
+		
+		<pre>var a = [1,2,3];
+console.log( $.inArray(1, a) ); // 0
+console.log( $.inArray(3, a) ); // 2
+console.log( $.inArray(4, a) ); // -1</pre>
+		</article>
+		
+		<article>
+		<h1>makeArray</h1>
+		<p>Create a real array from an array-like object.</p>
+		
+		<pre>var p = document.getElementsByTagName("p");
+var pArray = $.makeArray(p);</pre>
+		</article>
+		
+		<article>
+		<h1>merge</h1>
+		<p>Merge the contents of two arrays into the first array retaining order and duplicate values.</p>
+		
+		<pre>var a = [0, 1, 2];
+var b = [2, 3, 4];
+$.merge(a, b);
+console.log( a );</pre>
+		
+		<pre>[0, 1, 2, 2, 3, 4]</pre>
+		</article>
+		
+		<article>
+		<h1>extend</h1>
+		
+		<p>Merges the contents of two objects/arrays and modifies the first. If duplicates are found, the second takes priority.</p>
+		
+		<pre>var a = { alpha: 1, beta: 2, gamma: 3 };
+var b = { alpha: 0, delta: 999 };
+$.extend(a, b);
+console.log( a );</pre>
+		
+		<pre>{ alpha: 0, beta: 2, gamma: 3, delta: 999 };</pre>
+		
+		</article>
+		
+		<article>
+		<h1>each</h1>
+		
+		<p>Can iterate over a jQuery object:</p>
+		<pre>$("p").each( function(i, e) {
+	console.log( "paragraph ", i, ": ", e );
+});</pre>
+		
+		<p>or an array</p>
+		<pre>$.each( [1,2,3], function(i, e) {
+	console.log( "item at index ", i, " is ", e );
+});</pre>
+		
+		</article>
+		
+		<article>
+		<h1>map</h1>
+		<p>Translate all items in an array/object to a new array/object.</p>
+		
+		<pre>var a = ['a', 'b', 'c'];
+var b = $.map(a, function(i, e){
+	return e+i;
+});
+
+console.log( b );</pre>
+		
+		<pre>['a0', 'b1', 'c2']</pre>
+		</article>
+
+	</section>
+
+  </body>
+</html>

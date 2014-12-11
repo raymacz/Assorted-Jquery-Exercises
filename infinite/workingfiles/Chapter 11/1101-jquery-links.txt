@@ -1,0 +1,28 @@
+Useful jQuery Resources
+
+jQuery home, downloads, tutorials and documentation:
+http://jquery.com/
+
+jQuery documentation viewer:
+http://jqapi.com/
+
+jQuery cheat sheet:
+http://jqapi.ru/
+
+jQuery documentation viewer:
+http://visualjquery.com/
+
+jQuery source browser:
+http://james.padolsey.com/jquery/
+
+Developer tutorials and articles
+http://www.sitepoint.com/
+
+My developer articles:
+http://www.sitepoint.com/author/craig-buckler/
+
+jQuery plugins:
+http://plugins.jquery.com/
+
+jQuery UI interface and theming plugin
+http://jqueryui.com/

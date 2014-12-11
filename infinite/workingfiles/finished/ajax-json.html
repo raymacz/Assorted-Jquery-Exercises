@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>jQuery and Ajax</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery and Ajax</h1>
+	</header>
+
+	<article>
+
+		<form id="speedform" action="speedconvert.php" method="get">
+			<fieldset>
+			<legend>Speed conversion</legend>
+
+			<label for="speed">Speed:</label>
+			<input type="text" id="speed" name="speed" />
+
+			<select type="text" id="unit" name="unit">
+				<option value="mph">miles per hour</option>
+				<option value="kph">kilometers per hour</option>
+				<option value="fps">feet per second</option>
+				<option value="mps">meters per second</option>
+			</select>
+
+			<button type="submit">Convert</button>
+
+			</fieldset>
+		</form>
+
+		<div id="output"></div>
+
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="jquery.js"></script>
+<script>
+
+// intercept form submit
+$(function() {
+	$("#speedform").submit(RunAjax);
+});
+
+
+// Setup function
+function RunAjax(e) {
+
+	// parameters and defaults
+	var ws = e.target.action;
+	var speed = $("#speed").val();
+	var unit = $("#unit").val();
+	var callback = "";
+	var format = "json";
+
+	var args =
+		"speed=" + speed + // "?" putting before speed wont work unlike ajax-html
+		"&unit=" + unit +
+		"&format=" + format;
+
+	// Ajax call
+	$.getJSON(ws, args, Process);
+       // $.getJSON(ws, {"speed":speed, "unit":unit, "format": format }, Process);
+        // .get ws-string url, args can be  {speed:5, unit="mph"}, speed=5&unit="mph", process is the callback
+
+	// stop form submit
+	return false;
+}
+
+
+// parse Ajax response
+function Process(data,statuz,xhrob) {
+
+	var html = "";
+	html += "<table>\n"; //rbtm
+	$.each(data,function(i, v) {
+		//html += "<p><strong>"+i+"</strong>: "+v+"</p>";
+		html += "<tr><th>"+i+"</th><td>"+v+"</td></tr>\n"; //rbtm
+	});
+	html += "</table>\n"; //rbtm
+	$("#output").empty().append(html); // concatenation
+
+	console.log( "kph: ", data.kph ); // object data with the kph balue
+	console.log( "stats: ", statuz); //rbtm statuz is message response by the server
+	console.log( "xhr: ", xhrob); //rbtm xhrob is object response by the server
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+			<h1>jQuery</h1>
+			<p>Basics and terminology</p>
+		</article>
+		
+		<article>
+			<h1>The jQuery function</h1>
+			<section><pre>jQuery()</pre></section>
+			
+			<p>more common notation:</p>
+			<section><pre>$()</pre></section>
+		</article>
+		
+		<article>
+			<h1>jQuery selector</h1>
+			<p>Pass a CSS selector string:</p>
+			<pre>$("h1");</pre>
+
+			<div class="build">
+				<pre>$("p");</pre>
+			</div>
+		</article>
+		
+		<article>
+			<h1>A jQuery object</h1>
+			<p>(also known as the jQuery result, set or selected elements)</p>
+			
+			<q>a set of document elements returned by the jQuery function</q>
+		</article>
+		
+		<article>
+			<h1>A jQuery object</h1>
+			<pre>var n = $("p");
+console.log( n );</pre>
+			
+			<div class="build">
+			<pre>[
+	p.intro,
+	p,
+	p#note
+]</pre>
+
+			<pre>console.log( n.length ); // 3</pre>
+			
+			<pre>console.log( n[0] ); // p.intro</pre>
+			</div>
+			
+		</article>
+		
+		<article>
+			<h1>jQuery methods</h1>
+			<p>Doing something interesting with a jQuery object&hellip;</p>
+			
+			<pre>$("p").css("color", "red");</pre>
+		
+		</article>
+		
+	</section>
+
+  </body>
+</html>

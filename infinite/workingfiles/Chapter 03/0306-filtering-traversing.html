@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+		<h1>jQuery selectors</h1>
+		<p>Element traversing and filtering</p>
+		</article>
+
+		<article class="smaller">
+		<h1>Filtering</h1>
+		
+		<div class="build">
+		
+			<pre>$("p").first(); // first item
+$("p").last(); // last item</pre>
+		
+			<pre>$("p").eq(0); // first item
+$("p").eq(1); // second item
+$("p").eq(-1); // last item</pre>
+
+			<pre>$("p").slice(2,4); // third, fourth and fifth items
+$("p").slice(1); // all but first item
+</pre>
+		
+		</div>
+		
+		</article>
+		
+		<article class="smaller">
+		<h1>Filtering</h1>
+		
+		<div class="build">
+
+			<pre>$("p").has("em"); // only items with em elements</pre>
+
+			<pre>$("p").filter(".myclass"); // only element with class "myclass"
+$("p").filter(":even"); // even numbered items
+$("p").filter( $("p.myclass") ); // elements which appear in both sets
+$("p").filter(function(i) { return (i % 3 == 0) }); // every third item
+</pre>
+
+			<pre>$("p").not(".myclass"); // elements without class "myclass"
+$("p").not(":even"); // odd numbered items
+</pre>
+		
+		</div>
+		
+		</article>
+		
+		<article class="smaller">
+		<h1>Sibling traversal</h1>
+		
+		<pre>&lt;!-- HTML --&gt;
+&lt;p id=&quot;p1&quot;&gt;paragraph 1&lt;/p&gt;
+&lt;p id=&quot;p2&quot;&gt;paragraph 2&lt;/p&gt;
+&lt;p id=&quot;p3&quot;&gt;paragraph 3&lt;/p&gt;</pre>
+		
+		<div class="build">
+
+			<pre>$("#p2").prev(); // previous sibling (#p1)
+$("#p2").next(); // next sibling (#p3)</pre>
+
+			<pre>$("#p1").prevAll(); // all previous siblings (none)
+$("#p1").nextAll(); // all next siblings (#p2, #p3)</pre>
+
+			<pre>$("#p2").prevUntil("div"); // all previous siblings until div
+$("#p2").nextUntil("div"); // all next siblings until div</pre>
+
+			<pre>$("#p2").siblings(); // all siblings (#p1, #p2)</pre>
+		
+		</div>
+		</article>
+		
+		<article class="smaller">
+		<h1>Parent traversal</h1>
+		
+		<pre>&lt;!-- HTML --&gt;
+&lt;div&gt;
+  &lt;ol&gt;
+   &lt;li id=&quot;i1&quot;&gt;item 1&lt;/li&gt;
+   &lt;li id=&quot;i2&quot;&gt;item 2&lt;/li&gt;
+   &lt;li id=&quot;i3&quot;&gt;item 3&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</pre>
+		
+		<div class="build">
+		
+			<pre>$("#i1").parent(); // immediate parent (ol)</pre>
+			<pre>$("#i1").parent("div"); // immediate div parent (none)</pre>
+			<pre>// closest positioned parent (CSS relative, absolute, fixed)
+$("#i1").offsetParent();</pre>
+
+		</div>
+		</article>
+		
+		<article class="smaller">
+		<h1>Parent traversal</h1>
+		
+		<pre>&lt;!-- HTML --&gt;
+&lt;div&gt;
+  &lt;ol&gt;
+   &lt;li id=&quot;i1&quot;&gt;item 1&lt;/li&gt;
+   &lt;li id=&quot;i2&quot;&gt;item 2&lt;/li&gt;
+   &lt;li id=&quot;i3&quot;&gt;item 3&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</pre>
+		
+		<div class="build">
+			
+			<pre>$("#i1").parents(); // all parent elements to &lt;html&gt;
+$("#i1").parents("div"); // all div parent elements to &lt;html&gt;</pre>
+
+			<pre>$("#i1").parentsUntil("article"); // all parents up to but not including &lt;article&gt;
+// all div parents up to but not including &lt;article&gt;
+$("#i1").parentsUntil("article", "div");</pre>
+
+			<pre>$("#i1").closest("div"); // closest div parent</pre>
+		
+		</div>
+		</article>
+
+		<article class="smaller">
+		<h1>Child traversal</h1>
+		
+		<pre>&lt;!-- HTML --&gt;
+&lt;div&gt;
+  &lt;ol&gt;
+   &lt;li id=&quot;i1&quot;&gt;item 1&lt;/li&gt;
+   &lt;li id=&quot;i2&quot;&gt;item 2&lt;/li&gt;
+   &lt;li id=&quot;i3&quot;&gt;item 3&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</pre>
+		
+		<div class="build">
+
+			<pre>$("div").children(); // immediate child elements (ol)
+$("div").children("p"); // immediate child p elements (none)</pre>
+
+			<pre>$("div").find(); // all descendant elements
+$("div").find("li"); // all descendant li elements</pre>
+		
+		</div>
+		
+		</article>
+		
+		<article class="smaller">
+		<h1>Traversal</h1>
+		<pre>&lt;!-- HTML --&gt;
+&lt;div&gt;
+  &lt;ol&gt;
+   &lt;li id=&quot;i1&quot;&gt;item 1&lt;/li&gt;
+   &lt;li id=&quot;i2&quot;&gt;item 2&lt;/li&gt;
+   &lt;li id=&quot;i3&quot;&gt;item 3&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</pre>
+		
+		<div class="build">
+
+			<pre>$("div").add("ol"); // all div and ol elements - same as $("div,ol")</pre>
+
+			<pre>$("#i1").siblings().andSelf(); // ol and li elements</pre>
+		
+		</div>
+		
+		</article>
+
+	</section>
+
+  </body>
+</html>

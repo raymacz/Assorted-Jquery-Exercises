@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>jQuery and Ajax</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery and Ajax</h1>
+	</header>
+	
+	<article>
+		
+		<form id="speedform" action="speedconvert.php" method="get">
+			<fieldset>
+			<legend>Speed conversion</legend>
+			
+			<label for="speed">Speed:</label>
+			<input type="text" id="speed" name="speed" />
+			
+			<select type="text" id="unit" name="unit">
+				<option value="mph">miles per hour</option>
+				<option value="kph">kilometers per hour</option>
+				<option value="fps">feet per second</option>
+				<option value="mps">meters per second</option>
+			</select>
+			
+			<button type="submit">Convert</button>
+			
+			</fieldset>
+		</form>
+		
+		<div id="output"></div>
+		
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="jquery.js"></script>
+<script>
+
+// intercept form submit
+$(function() {
+	$("#speedform").submit(RunAjax);
+});
+
+
+// Setup function
+function RunAjax(e) {
+
+	// parameters and defaults
+	var ws = e.target.action;
+	var speed = $("#speed").val();
+	var unit = $("#unit").val();
+	var callback = "";
+	var format = "html";
+	
+	// create web service URL
+	var url =
+		ws +
+		"?speed=" + speed +
+		"&unit=" + unit +
+		"&format=" + format;
+	
+	// Ajax call
+	$("#output").load(url);
+	
+	// stop form submit
+	return false;
+}
+
+</script>
+</body>
+</html>

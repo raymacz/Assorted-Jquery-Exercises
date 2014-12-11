@@ -1,0 +1,43 @@
+/* presentation CSS */
+*
+{
+	cursor: default;
+}
+
+body
+{
+	display: none;
+}
+
+.slides > article
+{
+	padding-top: 200px;
+	background: #fff url("../images/infiniteskills.png") 0 0 no-repeat;
+}
+
+ul.plain
+{
+	list-style-type: none;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+img
+{
+	vertical-align: middle;
+}
+
+img.photo
+{
+	float: right;
+	padding: 5px;
+	box-shadow: 0 0 10px #888;
+}
+
+pre.prettyprint
+{
+	margin-top: 10px;
+}

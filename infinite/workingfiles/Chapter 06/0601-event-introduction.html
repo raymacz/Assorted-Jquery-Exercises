@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+		<h1>Web browser events</h1>
+		<p>An introduction</p>
+		</article>
+
+		<article>
+		<h1>What is "an event"?</h1>
+		<q>any user interaction with the web page</q>
+		</article>
+		
+		<article>
+		<p><em>Such as?&hellip;</em></p>
+		
+		<ul class="build">
+		<li>opening the page</li>
+		<li>hovering over an element</li>
+		<li>clicking an element</li>
+		<li>focusing a form field</li>
+		<li>typing a character</li>
+		<li>submitting a form</li>
+		<li>scrolling the page</li>
+		<li>resizing the window</li>
+		<li>closing the page</li>
+		</ul>
+		</article>
+		
+		<article>
+		<h1>Step 1: event registration</h1>
+	
+		<ol class="build">
+		<li>Identify the element</li>
+		<li>Identify the action</li>
+		<li>Register a handler</li>
+		</ol>
+		</article>
+		
+		<article>
+		<h1>Step 2: create an event handler</h1>
+		
+		<ul class="build">
+		<li>a function</li>
+		<li>passed an event object</li>
+		<li>analyse the event object</li>
+		<li>perform the relevant actions</li>
+		</ul>
+		</article>
+		
+		<article>
+		<h1>Step 3: further actions?</h1>
+		
+		<ul class="build">
+		<li>deregister the event</li>
+		<li>enable or disable further event actions</li>
+		</ul>
+		</article>
+		
+		<article>
+		<h1>Multiple events</h1>
+		<p>Any number of events can be applied to the same element.</p>
+		<p>Different event handlers can be registered for the same element and event type.</p>
+		</article>
+		
+		<article>
+		<h1>Event propagation</h1>
+		
+		<div style="width:80%;padding:5px;margin:50px auto;border:2px solid #00c;">element1
+			<div style="width:80%;padding:5px;margin:20px auto 50px;border:2px solid #c00;">element2</div>
+		</div>
+		
+		</article>
+		
+		<article>
+		<h1>Event delegation</h1>
+		
+		<table>
+		<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+		<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+		<tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+		<tr><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+		<tr><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+		</table>
+		
+		</article>
+		
+		
+	</section>
+
+  </body>
+</html>

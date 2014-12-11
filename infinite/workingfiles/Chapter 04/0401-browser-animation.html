@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+<style>
+#animate
+{
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	margin: 100px auto;
+	color: #f00;
+	opacity: 0.05;
+}
+</style>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+		<h1>Browser animation</h1>
+		<p>An introduction</p>
+		</article>
+		
+		<article>
+		<h1>JavaScript + CSS =</h1>
+		<p id="animate">ANIMATION!</p>
+		</article>
+		
+		<article>
+		<h1>Other options</h1>
+		<ul class="build">
+		<li>Animated GIFs / PNGs</li>
+		<li>CSS3</li>
+		<li>Canvas</li>
+		<li>SVG</li>
+		<li>Video</li>
+		<li>Flash or Silverlight</li>
+		</ul>
+		</article>
+		
+		<article>
+		<p>Please use animation sparingly&hellip;</p>
+		<iframe src="http://www.lingscars.com/"></iframe>
+		</article>
+
+	</section>
+	
+<script src="../resources/script/jquery.js"></script>
+<script>
+$("#animate").click(function(e) {
+	$(e.target).animate({
+		"font-size": "4em",
+		"top": "-2em",
+		"opacity": 1
+	})
+});
+</script>
+
+  </body>
+</html>

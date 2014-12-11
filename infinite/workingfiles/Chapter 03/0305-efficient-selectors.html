@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+			<h1>Efficient jQuery selectors</h1>
+		</article>
+		
+		<article>
+			<h1>Use an ID if possible</h1>
+			
+			<pre>$("#idname");</pre>
+
+		</article>
+		
+		<article>
+			<h1>Avoid selecting by class</h1>
+			
+			<pre>$(".myclass");</pre>
+			
+			<div class="build">
+				<pre>$("p.myclass"); // faster</pre>
+			</div>
+
+		</article>
+		
+		<article>
+			<h1>Keep it simple!</h1>
+			
+			<p>Overly complex selectors take longer to parse&hellip;</p>
+			<pre>$("body page:first-child article.main p#intro em");</pre>
+			
+			<div class="build">
+				<pre>$("p#intro em");</pre>
+			</div>
+		</article>
+		
+		<article>
+			<h1>Be more specific on right</h1>
+			
+			<p>Selecting works from right to left:</p>
+			<pre>$("p#intro em");</pre>
+			
+			<div class="build">
+				<pre>$("p#intro").find("em");</pre>
+				<pre>$("em", $("p#intro"));</pre>
+			</div>
+		</article>
+		
+		<article>
+			<h1>Avoid selector repetition</h1>
+
+			<pre>$("p").css("color", "blue");
+$("p").text("Text changed!");</pre>
+			
+			<div class="build">
+				<pre>// use chaining
+$("p").css("color", "blue").text("Text changed!");</pre>
+
+				<pre>// or cache
+var p = $("p");
+p.css("color", "blue");
+p.text("Text changed!");
+</pre>
+			</div>
+		</article>
+		
+	</section>
+
+  </body>
+</html>

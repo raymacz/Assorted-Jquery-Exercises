@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Manipulation</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery DOM Methods</h1>
+		<p>Manipulatating the Document Object Model</p>
+	</header>
+	
+	<article style="position:relative;border:1px solid #000;">
+	
+		<div id="moveme">Element to Move</div>
+	
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+var e = $("#moveme");
+
+// location on page
+console.log( "offset: ", e.offset() );
+
+// location in relation to offset parent
+console.log( "position: ", e.position() );
+
+// change location
+e.offset( {top:50, left:100} );
+
+// change element dimensions
+e.width(500);
+e.height(150);
+
+// element width/height
+console.log( "width: ", e.width() );
+console.log( "height: ", e.height() );
+
+// element width/height plus padding
+console.log( "innerWidth: ", e.innerWidth() );
+console.log( "innerHeight: ", e.innerHeight() );
+
+// element width/height plus padding and borders
+// (pass true to include margins)
+console.log( "outerWidth: ", e.outerWidth() );
+console.log( "outerHeight: ", e.outerHeight() );
+
+// document dimensions
+console.log( "document width: ", $(document).width() );
+console.log( "document height: ", $(document).height() );
+
+// browser window dimensions
+console.log( "viewport width: ", $(window).width() );
+console.log( "viewport height: ", $(window).height() );
+
+</script>
+</body>
+</html>

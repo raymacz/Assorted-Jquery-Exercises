@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presentation</title>
+<meta charset="utf-8">
+<link rel="stylesheet" media="all" href="../resources/styles/presentation.css" />
+<script src="../resources/script/slides.js"></script>
+</head>
+<body>
+
+	<section class="slides layout-regular">
+
+		<article>
+		<h1>jQuery utility functions</h1>
+		<p>Browser feature detection</p>
+		</article>
+		
+		<article>
+		<q>AVOID BROWSER SNIFFING</q>
+		</article>
+		
+		<article>
+		<h1>Seriously. It stinks.</h1>
+		<ol class="build">
+		<li>It's difficult to do.</li>
+		<li>There are dozens of browsers.</li>
+		<li>Forked code is hard to maintain.</li>
+		<li>Browsers masquerade as others.</li>
+		<li>It's not necessary.</li>
+		</ol>
+		</article>
+		
+		<article>
+		<h1>jQuery browser property</h1>
+		
+		<pre>$.browser.msie
+$.browser.mozilla
+$.browser.webkit
+$.browser.opera
+</pre>
+
+		<pre>
+$.browser.version		
+</pre>
+		</article>
+
+		<article>
+		<h1>jQuery support property</h1>
+		
+		<pre>$.support.ajax
+$.support.opacity
+// etc.
+</pre>
+
+		<pre>// view all support properties
+console.log( $.support );
+</pre>
+		</article>
+		
+	</section>
+
+  </body>
+</html>

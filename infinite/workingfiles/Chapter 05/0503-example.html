@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Manipulation</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header class="class1 class2 class3">
+		<h1>jQuery DOM Methods</h1>
+		<p>Manipulatating the Document Object Model</p>
+	</header>
+	
+	<article>
+	
+		<img src="../resources/images/dom-tree.png" width="330" height="319" alt="DOM tree" />
+	
+		<p>In this chapter we will discover how to get and set:</p>
+		<ul>
+			<li>attributes</li>
+			<li>CSS properties</li>
+			<li>form values</li>
+			<li>element text</li>
+			<li>HTML5 element data</li>
+			<li>element positions</li>
+		</ul>
+		
+		<p>as well as:</p>
+		<ul>
+			<li>wrapping HTML elements</li>
+			<li>copying HTML elements</li>
+			<li>deleting HTML elements</li>
+		</ul>
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// add "bright" class to header
+$("header").addClass("bright");
+
+// has "bright" class been applied?
+console.log( "bright class is applied: ",$("header").hasClass("bright") );
+
+// remove "bright" class from header
+$("header").removeClass("bright");
+
+// has "bright" class been applied?
+console.log( "bright class is applied: ",$("header").hasClass("bright") );
+
+// add/remove "bright" class as necessary
+$("header").toggleClass("bright");
+
+</script>
+</body>
+</html>

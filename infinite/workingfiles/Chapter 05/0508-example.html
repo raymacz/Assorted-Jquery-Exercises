@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>DOM Manipulation</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery DOM Methods</h1>
+		<p>Manipulatating the Document Object Model</p>
+	</header>
+	
+	<article>
+	
+		<p>In this chapter we will discover how to get and set:</p>
+		<ul>
+			<li>attributes</li>
+			<li>CSS properties</li>
+			<li>form values</li>
+			<li>element text</li>
+			<li>HTML5 element data</li>
+			<li>element positions</li>
+		</ul>
+		
+		<p>as well as:</p>
+		<ul>
+			<li>wrapping HTML elements</li>
+			<li>copying HTML elements</li>
+			<li>deleting HTML elements</li>
+		</ul>
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// add new paragraph as last child node
+$("article").append("<p>A new paragraph!</p>");
+
+// add new paragraph as first child node
+$("article").prepend("<p>A new paragraph!</p>");
+
+// add new item after second list item
+var a = $("article ul:first li").eq(1);
+a.after("<li>CSS positions</li>");
+
+// add new item before second list item
+a.before("<li>CSS positions</li>");
+
+// replace second list item
+a.replaceWith("<li>CSS positions</li>");
+
+</script>
+</body>
+</html>

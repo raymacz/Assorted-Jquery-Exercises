@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>jQuery events</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery Events</h1>
+	</header>
+	
+	<article>
+	
+		<ul id="list">
+			<li>I'm item 1</li>
+		</ul>
+		
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// run when DOM is ready
+$(function() {
+
+	// attach event to all existing and new list items in ul#list
+	$("ul#list").delegate("li", "click", function(e) {
+		var ul = $(e.target).parent();
+		ul.append("<li>new item "+(ul.children().length+1)+"</li>");
+	});
+
+});
+
+</script>
+</body>
+</html>

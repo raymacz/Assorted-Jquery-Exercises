@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>jQuery events</title>
+<link rel="stylesheet" media="all" href="styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>jQuery Events</h1>
+	</header>
+	
+	<article>
+	
+		<div id="e1">element1
+			<div id="e2">element2</div>
+		</div>
+		
+		<img id="globe" src="../resources/images/internet.png" style="float:right;" />
+		
+		<p><a id="google" href="http://www.google.com/">Visit Google&hellip;</a></p>
+		
+		<form id="myform" action="#" method="get">
+			<label for="yourname">Name:</label>
+			<input type="text" id="yourname" name="yourname" />
+			<button type="submit">Submit</button>
+		</form>
+		
+	</article>
+
+	<footer>
+		<p><a href="http://www.infiniteskills.com/">&copy; InfiniteSkills</a></p>
+		<p><a href="http://craigbuckler.com/">By Craig Buckler</a></p>
+	</footer>
+
+<script src="../resources/script/jquery.js"></script>
+<script>
+
+// run when DOM is ready
+$(function() {
+
+	// change class when mouse moved over/out
+	$("#e1").bind("mouseenter mouseleave", function(e) { 
+		$(this).toggleClass("over");
+	});
+	
+	// disable a link click
+	$("a#google").click(function(e) {
+		alert("You're going nowhere!");
+		return false;
+	});
+	
+	// check a form on submit
+	$("#myform").submit(function(e) {
+		var n = $("#yourname").val();
+		if (n == "") {
+			alert("Please enter your name...");
+		}
+		else {
+			alert("Hello "+n+"!");
+		}
+		return false;
+	});
+
+});
+
+</script>
+</body>
+</html>
