@@ -28,8 +28,8 @@
 	</p>
 </div>
 
-//https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js
-//https://developers.google.com/speed/libraries/devguide#jquery
+<?php //https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js
+//https://developers.google.com/speed/libraries/devguide#jquery?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
