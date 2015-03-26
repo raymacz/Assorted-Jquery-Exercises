@@ -25,26 +25,24 @@
 
 <script>
 
-(function() {
+(function() { /// $.filter(':nth-child(n+1)'), $.on(), $.addClass(), $.next(), $.slideDown(), $.slideUp(), $.siblings()
+    var $dl = $('dl');
+     //   console.log($('dl').children('dd'));
+     console.log($('dd').filter(':nth-child(n+8)'));
+        $dl.children('dd').css('display','none');
+        $dl.find('dd').first().slideDown();
+        $('body').find('dl').on('mouseenter', 'dt',function() {
+             var $this= $(this);
+        //    console.log($this.siblings('dd'));
+            $this.next().slideDown(200).siblings('dd').slideUp();
+        });
 	
-	$('dd').filter(':nth-child(n+6)').addClass('hide');
-	//$('dd').filter(':nth-child(n)').addClass('hide');
-	//$('dd:nth-child(n+6)').addClass('hide');
- console.log($('dd'));
-	$('dl').on('mouseenter', 'dt', function() { 
-	//use 'dl' and child 'dt' so there is only one event listener to optimize performance rather than hundreds of event listeners
-		$(this)
-			.next()
-				.slideDown(200) // show animation
-				.siblings('dd')
-					.slideUp(200); //hide animation
-					 //console.log(dataz);
-	});
+	
 })();
 
 
 </script>
-
+<div class="linkz" style="margin-top: 0xpx; margin-left: 30px;"> </div>
 </body>
 </html>
 

@@ -100,65 +100,88 @@
 <script>
 
 (function() {
+///{}=object []=array 
+///$.addClass(); $.extend(); $.insertAfter(); $.on(); $.text(); $.call(); $.prependTo(); $.find(); $.length; $.is();
+/// $.fadeToggle(); $.slideToggle(); var X = {init: function() {}}
+
+///$.customfunction.call(); $.property;
 
 
-$('html').addClass('js');
+$('body').addClass('js');
 
-var contactFormz = {
 
-	containerz: $('#contact'),
+var ContactFormz = {
 
-	config: {
-		effectz: 'slideToggle',
-		speed: 1000
-	},
+	///container
+        cform: $('#contact'),
 
-	initz: function(xconfig) {
-		$.extend(this.config, xconfig);
-		// the extend() function overrides the target object with its attributes
-		$('<button></button>', {
-			text: 'Contact Me'
-		})
-			.insertAfter( 'article:first' )
-			.on( 'click', this.showz );
-	},
+	///config
+        config: {
+            speedz:2000,
+            effectz: 'slideToggle',
+        },
+        
+        ///initialize
+         initz: function(objx) {
+             var $this = ContactFormz.cform;
+         
+             //  $this.css('display','block');
+                 $.extend(this.config, objx);
+                 console.log(this.config + ' vs ' + objx);
+              //  ContactFormz.showz(); /// $this will not work since .showz() is not a property of $('#contact') but ContactFormz only
+                $('article:eq(0)').append('<button>Click Me</button>').find('button').on('click',function(){
+                    ContactFormz.showz();
+                });
+                  //  console.log($('article:eq(0)'));
+            
+         },
 
-	showz: function() {
-		var cf = contactFormz,
-			containerz = cf.containerz,
-			config = cf.config;
+	///show
+        showz: function() {
+             var $this = ContactFormz.cform,
+                 CF_config = ContactFormz.config;
+             console.log($this);
+           
+           if ($this.css('display','none')) {
+           
+             $this[CF_config.effectz](CF_config.speedz);
+                // $('#contact')[.slidetoggle](1000);
+             this.close.call($this); // use $.call() to pass (this) on an anonymous function
+         };
+         
+        },
 
-		if ( containerz.is(':hidden') ) {
-
-			// the call() javascript function tells what argument to pass...
-			containerz[config.effectz](config.speed);
-			contactFormz.close.call(containerz);
-		}
-	},
-
-	close: function() {
-		var $this = $(this), // #contact
-			config = contactFormz.config;
-
-		if ( $this.find('span.close').length ) return;
-			//exits function if span.close is found to avoid adding an element
-		$('<span class=close>X</span>')
-			.prependTo(this)
-
-			.on('click', function() {
-				// this = span
-				$this[config.effectz](config.speed);
-			})
-       console.log(this);
-	}
+	/// close
+        
+        close: function() {
+             var // $this = $(this);//passed by scope .call($this) /// $('#contact)
+                 $this = this;
+               // $this = this.cform;
+              CF_config = ContactFormz.config;
+             console.log( $this +' debugz1');
+             if ($this.find('.close').length) return; //check if button exist
+            console.log( $this.find('H2')+' debugz2');
+            $('<button class="close">X</button>').insertAfter($this.find('h2')).on('click',function(){
+                 //  $this.css('display','none');
+                 $this[CF_config.effectz](CF_config.speedz);
+                });
+        }
+        
+        
+     //  console.log(this);
+     //  console.log($this.find('span.close').length+' debugz');
+	
 };
 
-contactFormz.initz({  // user can configure the settings
-	 effectz: 'fadeToggle',
-	speed: 2500
+///custom settings
+//ContactFormz.initz();
+ContactFormz.initz({
+      speedz : 3000,
+      effectz : 'fadeToggle'
 });
 
 })();
+
 
 </script>
 

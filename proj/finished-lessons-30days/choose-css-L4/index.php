@@ -9,8 +9,8 @@
 
 <h1>My Website</h1>
 
-<button data-file="day">Day</button>
-<button data-file="night">Night</button>
+<button id="dayz" data-file="day">Day</button>
+<button id="nightz" data-file="night">Night</button>
 <button data-file="noon">Noon</button>
 
 
@@ -18,27 +18,26 @@
 
 
 <script>
-
+//$.attr(), $.data(), .siblings(), .removeAttr(), .end(), .on()
+        
 (function() {
-	var link = $('link');
+        link = $('link')
 	
-	//$('button').click(function() {
-	$('button').on('click', function() {
-		var $this = $(this),
-			stylesheet = $this.data('file');
-			//stylesheet = $this.attr('data-file');
-		//	console.log(stylesheet);
-		link.attr('href', stylesheet + '.css');
-			//console.log(link.attr('href'));
-		//$this.siblings('button').removeAttr('disabled')
-		$this.siblings('button').removeAttr('disabled')
-				.end().attr('disabled', 'x');
-				//.end().attr('disabled', 'disabled');
-		console.log($this.siblings('button'));
-		//put end() since .attr('disabled') is referring to .siblings('button') and not $this.
-		//end means stop pointing at the selector which is siblings.
-	});
-})();
+     
+         console.log(link);
+       $('button').on('click', function() {
+              $this = $(this);
+          // $('link').attr('href',$this.attr('data-file'));
+          stylesheet = $this.data('file');
+          link.attr('href',stylesheet+'.css');
+          $this.attr('disabled','disabled').siblings('button').removeAttr('disabled');
+       })
+       
+       
+       
+       
+       
+   })();
 
 </script>
 

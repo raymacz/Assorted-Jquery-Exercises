@@ -58,30 +58,27 @@
 
 
 <script>
+/// $.find(), $.each(), $.before(), $.insertAfter(), $.closest(), $.prependTo(), $.parent(), $.text()
 
- //append() - after element, prepend() - before element    after()
-	var co = $('article').find('span.co').each(function() {
-	//co is used for console.log
-	console.log(co);
-		var $this = $(this);
-
-	//	$('p').first().before('Hello');
-		$('<blockquote></blockquote>', {
-			class: 'co',
-			text: $this.text()
-		}).prependTo( $this.closest('p') );
-		  console.log($this.parent()); // can be alternative for $this.closest('p')
-	//assigning attributes to object which is an element tag	
-	});
-	$('<h2></h2>',{ 
-			id: 'test',
-			text: 'surprise'
-		  }).insertAfter($('p').eq(0).prev());
-		   //used when creating an element otherwise use after()  insertBefore()
-		   // eq() used as a specific element sibling position of the selector
-		   // prev() position before the selector
-	console.log($('h2'));
-
+     //  console.log($('article').find('span.co'));
+	$('article').find('span.co').each(function() {
+            var $this = $(this);
+            console.log($this);
+            $('<blockquote></blockquote>', {
+               class: 'co',
+               text: $this.text(),
+            }).prependTo($this.closest('p'));
+            
+            
+          }
+        );
+          $('<caption></caption>', {
+                text: 'This is a caption...',                
+          }).insertAfter('h1').append('<a href="#">Linked</a>').append('<small></small>');
+          //$.insertAfter()-sibling element, $.append-child element
+          console.log($('caption'));
+          console.log($('a'));
+        
 </script>
 
 </body>
